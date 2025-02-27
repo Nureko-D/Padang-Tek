@@ -1,4 +1,11 @@
-<a href="" class="btn btn-primary btn-sm">Tambah Data</a> <br>
+<a href="<?= base_url('mahasiswa/input_mahasiswa') ?>" class="btn btn-primary btn-sm">Tambah Data</a> <br>
+
+<?php
+// notif CRUD
+
+
+?>
+
 <table class="table table-bordered" id="dataTable">
     <thead>
         <tr class="text-center">
