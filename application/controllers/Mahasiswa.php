@@ -112,6 +112,13 @@ class Mahasiswa extends CI_Controller
         }
     }
 
+    public function delete_mahasiswa($id_mahasiswa)
+    {
+        $data = array('id_mahasiswa' => $id_mahasiswa);
+        $this->m_mahasiswa->delete_data($data);
+        $this->session->set_flashdata('pesan', 'Data Mahasiswa Berhasil DI Delete');
+        redirect('mahasiswa/index');
+    }
 
     // ----
 }

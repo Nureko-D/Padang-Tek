@@ -34,4 +34,12 @@ class M_mahasiswa extends CI_Model
 
         $this->db->update('tbl_mahasiswa', $data);
     }
+
+    // Delete Data
+    public function delete_data($data)
+    {
+        $this->db->where('id_mahasiswa', $data['id_mahasiswa']);
+
+        $this->db->delete('tbl_mahasiswa', $data);
+    }
 }

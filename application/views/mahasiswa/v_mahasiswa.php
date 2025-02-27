@@ -37,7 +37,7 @@ if ($this->session->flashdata('pesan')) {
                 </td>
                 <td class="text-center">
                     <a href="<?= base_url('mahasiswa/edit_mahasiswa/' . $value->id_mahasiswa) ?>" class="btn btn-warning btn-sm">Edit</a>
-                    <a href="" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="<?= base_url('mahasiswa/delete_mahasiswa/' . $value->id_mahasiswa) ?>" onclick="return confirm('Yakin akan dihapus... ?')" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
         <?php } ?>
