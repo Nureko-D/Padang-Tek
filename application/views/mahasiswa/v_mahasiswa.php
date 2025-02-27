@@ -2,7 +2,11 @@
 
 <?php
 // notif CRUD
-
+if ($this->session->flashdata('pesan')) {
+    echo '<div class="alert alert-success">';
+    echo $this->session->flashdata('pesan');
+    echo '</div>';
+}
 
 ?>
 

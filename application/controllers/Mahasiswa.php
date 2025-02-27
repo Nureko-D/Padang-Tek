@@ -58,7 +58,7 @@ class Mahasiswa extends CI_Controller
             $this->m_mahasiswa->insert_data($data);
 
             // notif berhasil ditambah
-            // $this->session->set_flashdata('pesan', 'Data Mahasiswa Berhasil Ditambahkan');
+            $this->session->set_flashdata('pesan', 'Data Mahasiswa Berhasil Ditambahkan');
 
             // jika sudah diinput, akan diarahkan ke halaman mahasiswa
             redirect('mahasiswa/index');
