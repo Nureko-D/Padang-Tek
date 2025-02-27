@@ -16,4 +16,22 @@ class M_mahasiswa extends CI_Model
     {
         $this->db->insert('tbl_mahasiswa', $data);
     }
+
+    // ambil detail data
+    public function detail_data($id_mahasiswa)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_mahasiswa');
+        $this->db->where('id_mahasiswa', $id_mahasiswa);
+
+        return $this->db->get()->row();
+    }
+
+    // update data
+    public function update_data($data)
+    {
+        $this->db->where('id_mahasiswa', $data['id_mahasiswa']);
+
+        $this->db->update('tbl_mahasiswa', $data);
+    }
 }
