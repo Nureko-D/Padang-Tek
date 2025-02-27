@@ -8,6 +8,9 @@ class M_mahasiswa extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_mahasiswa');
+        $this->db->join('tbl_fakultas', 'tbl_fakultas.id_fakultas = tbl_mahasiswa.id_fakultas', 'left');
+        $this->db->join('tbl_prodi', 'tbl_prodi.id_prodi = tbl_mahasiswa.id_prodi', 'left');
+
         return $this->db->get()->result();
     }
 

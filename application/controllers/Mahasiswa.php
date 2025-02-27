@@ -7,6 +7,8 @@ class Mahasiswa extends CI_Controller
         parent::__construct();
         // ini wajib agar bisa memanggil, jadi seperti bembuatan variabel
         $this->load->model('m_mahasiswa');
+        $this->load->model('m_fakultas');
+        $this->load->model('m_prodi');
     }
 
 
@@ -37,12 +39,23 @@ class Mahasiswa extends CI_Controller
         $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required', [
             'required' => '%s Harus diisi'
         ]);
+        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required', [
+            'required' => '%s Harus diisi'
+        ]);
+        $this->form_validation->set_rules('id_fakultas', 'Fakultas', 'required', [
+            'required' => '%s Harus diisi'
+        ]);
+        $this->form_validation->set_rules('id_prodi', 'Program Studi', 'required', [
+            'required' => '%s Harus diisi'
+        ]);
 
         if ($this->form_validation->run() == FALSE) {
             // jika validasi form gagal/tidak lolos
             $data = array(
                 'judul' => 'Input Mahasiswa',
                 'page' => 'mahasiswa/v_input_mahasiswa', //file page di folder  view
+                'fakultas' => $this->m_fakultas->all_data(),
+                'prodi' => $this->m_prodi->all_data(),
             );
             $this->load->view('v_template', $data, false); //load template
         } else {
@@ -53,6 +66,8 @@ class Mahasiswa extends CI_Controller
                 'tempat_lahir' => $this->input->post('tempat_lahir'),
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
                 'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+                'id_fakultas' => $this->input->post('id_fakultas'),
+                'id_prodi' => $this->input->post('id_prodi'),
             );
             $this->m_mahasiswa->insert_data($data);
 
@@ -82,6 +97,12 @@ class Mahasiswa extends CI_Controller
         $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required', [
             'required' => '%s Harus diisi'
         ]);
+        $this->form_validation->set_rules('id_fakultas', 'Fakultas', 'required', [
+            'required' => '%s Harus diisi'
+        ]);
+        $this->form_validation->set_rules('id_prodi', 'Program Studi', 'required', [
+            'required' => '%s Harus diisi'
+        ]);
 
         if ($this->form_validation->run() == FALSE) {
             // jika validasi form gagal/tidak lolos
@@ -90,10 +111,13 @@ class Mahasiswa extends CI_Controller
                 'judul' => 'Edit Mahasiswa',
                 'mhs' => $this->m_mahasiswa->detail_data($id_mahasiswa),
                 'page' => 'mahasiswa/v_edit_mahasiswa', //file page di folder  view
+                'fakultas' => $this->m_fakultas->all_data(),
+                'prodi' => $this->m_prodi->all_data(),
             );
             $this->load->view('v_template', $data, false); //load template
         } else {
             // jika lolos validasi, semua inputan ditampung di dalam array
+
             $data = array(
                 'id_mahasiswa' => $id_mahasiswa,
                 'nim' => $this->input->post('nim'),
@@ -101,7 +125,10 @@ class Mahasiswa extends CI_Controller
                 'tempat_lahir' => $this->input->post('tempat_lahir'),
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
                 'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+                'id_fakultas' => $this->input->post('id_fakultas'),
+                'id_prodi' => $this->input->post('id_prodi'),
             );
+
             $this->m_mahasiswa->update_data($data);
 
             // notif berhasil ditambah

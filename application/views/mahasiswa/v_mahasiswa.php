@@ -18,6 +18,8 @@ if ($this->session->flashdata('pesan')) {
             <th>Nama</th>
             <th>Tempat/tanggal</th>
             <th>Jenis Kelamin</th>
+            <th>Fakultas</th>
+            <th>Prodi</th>
             <th>aksi</th>
         </tr>
     </thead>
@@ -35,6 +37,8 @@ if ($this->session->flashdata('pesan')) {
                                             echo 'Perempuan';
                                         } ?>
                 </td>
+                <td><?= $value->nama_fakultas; ?></td>
+                <td><?= $value->nama_prodi; ?></td>
                 <td class="text-center">
                     <a href="<?= base_url('mahasiswa/edit_mahasiswa/' . $value->id_mahasiswa) ?>" class="btn btn-warning btn-sm">Edit</a>
                     <a href="<?= base_url('mahasiswa/delete_mahasiswa/' . $value->id_mahasiswa) ?>" onclick="return confirm('Yakin akan dihapus... ?')" class="btn btn-danger btn-sm">Delete</a>

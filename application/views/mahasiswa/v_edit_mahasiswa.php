@@ -46,6 +46,24 @@
                  <option value="P" <?= $mhs->jenis_kelamin === 'P' ? 'selected' : '' ?>>Perempuan</option>
              </select>
          </div>
+         <div class="form-group">
+             <label>Fakultas</label>
+             <select name="id_fakultas" class="form-control" id="">
+                 <option value="">--Pilih Fakultas--</option>
+                 <?php foreach ($fakultas as $key => $value) { ?>
+                     <option value="<?= $value->id_fakultas ?>" <?= $value->id_fakultas == $mhs->id_fakultas ? 'selected' : '' ?>><?= $value->nama_fakultas ?> </option>
+                 <?php } ?>
+             </select>
+         </div>
+         <div class="form-group">
+             <label>Program Studi</label>
+             <select name="id_prodi" class="form-control" id="">
+                 <option value="">--Pilih Prodi--</option>
+                 <?php foreach ($prodi as $key => $value) { ?>
+                     <option value="<?= $value->id_prodi ?>" <?= $value->id_prodi == $mhs->id_prodi ? 'selected' : '' ?>><?= $value->nama_prodi ?> </option>
+                 <?php } ?>
+             </select>
+         </div>
 
          <div class="form-group">
              <button class="btn btn-primary btn-sml" type="submit">Simpan</button>

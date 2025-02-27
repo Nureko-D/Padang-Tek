@@ -34,7 +34,6 @@
                      <label>Tanggal Lahir</label>
                      <input name="tgl_lahir" class="form-control" placeholder="" type="date">
                  </div>
-
              </div>
          </div>
 
@@ -48,6 +47,26 @@
                  <option value="P">Perempuan</option>
              </select>
          </div>
+         <div class="form-group">
+             <label>Fakultas</label>
+             <select name="id_fakultas" class="form-control" id="">
+                 <option value="">--Pilih Fakultas--</option>
+                 <?php foreach ($fakultas as $key => $value) { ?>
+                     <option value="<?= $value->id_fakultas ?>"><?= $value->nama_fakultas ?> </option>
+                 <?php } ?>
+             </select>
+         </div>
+         <div class="form-group">
+             <label>Program Studi</label>
+             <select name="id_prodi" class="form-control" id="">
+                 <option value="">--Pilih Prodi--</option>
+                 <?php foreach ($prodi as $key => $value) { ?>
+                     <option value="<?= $value->id_prodi ?>"><?= $value->nama_prodi ?> </option>
+                 <?php } ?>
+             </select>
+         </div>
+
+
 
          <div class="form-group">
              <button class="btn btn-primary btn-sml" type="submit">Simpan</button>
