@@ -69,8 +69,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?= base_url('mahasiswa/index') ?>">Mahasiswa</a>
-                        <a class="collapse-item" href="cards.html">Fakultas</a>
-                        <a class="collapse-item" href="cards.html">Program Studi</a>
+                        <a class="collapse-item" href="<?= base_url('fakultas/index') ?>">Fakultas</a>
+                        <a class="collapse-item" href="<?= base_url('prodi/index') ?>">Program Studi</a>
                         <a class="collapse-item" href="cards.html">Dosen</a>
                     </div>
                 </div>
